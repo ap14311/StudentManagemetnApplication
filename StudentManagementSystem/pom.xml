@@ -73,6 +73,7 @@
 <dependency>
     <groupId>org.apache.tomcat.embed</groupId>
     <artifactId>tomcat-embed-jasper</artifactId>
+    <version>10.1.26</version>
 </dependency>
 <!-- https://mvnrepository.com/artifact/jakarta.servlet.jsp.jstl/jakarta.servlet.jsp.jstl-api -->
 <dependency>
@@ -86,6 +87,32 @@
     <artifactId>jakarta.servlet.jsp.jstl</artifactId>
     <version>3.0.1</version>
 </dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-web</artifactId>
+    <version>6.1.11</version>
+</dependency>
+
+
+
+<dependency>
+ <groupId>jakarta.servlet.jsp.jstl</groupId>
+ <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+ <version>3.0.0</version>
+</dependency>
+<dependency>
+ <groupId>org.glassfish.web</groupId>
+ <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+ <version>3.0.1</version>
+</dependency>
+
+
+
+
+
+
+
 		
 		
 		

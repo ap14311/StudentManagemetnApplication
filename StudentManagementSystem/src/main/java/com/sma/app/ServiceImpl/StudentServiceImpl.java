@@ -9,71 +9,47 @@ import org.springframework.stereotype.Service;
 import com.sma.app.ServiceI.StudentServiceI;
 import com.sma.app.model.Student;
 import com.sma.app.repository.StudentRepository;
-
 @Service
-public class StudentServiceImpl implements StudentServiceI {
-	
-	
-	@Autowired
-	 private StudentRepository sr;
+public class StudentServiceImpl implements StudentServiceI{
 
+	@Autowired
+	private StudentRepository sr;
 	
 	@Override
-	public void  saveStudentDetails(Student s)
-	{
-		sr.save(s);
+	public String savestudentdetailsStudent(Student st) {
 		
+	  sr.save(st);
+	return "enroll student";
 	}
 
-
 	@Override
-	public List<Student> getAllStudents() {
+	public List<Student> getAllStudent() {
 		
 		return sr.findAll();
 	}
 
-
 	@Override
-	public void deleteStudent(int studentId) {
-		 sr.deleteById(Integer.valueOf(studentId));
-		
+	public List<Student> searchStudentByBatchNumber(String batchNumber) {
+		List<Student> batchStudent=sr.findAllByBatchNumber(batchNumber);
+		return batchStudent;
 	}
-
-
-	@Override
-	public List<Student> searchStudentByBatch(String batchNumber) {
-		List<Student> batchstudents=sr.findAllByBatchNumber(batchNumber);
-		return batchstudents;
-	}
-
-
-	@Override
-	public List seachStudentByBatch(String studentBatchNumber) {
-		// TODO Auto-generated method stub
-		return sr.findAllByBatchNumber(studentBatchNumber);
-		
-	}
-
 
 	@Override
 	public Student getSingleStudent(int id) {
-		 Optional opStudent = sr.findById(Integer.valueOf(id));
-	        return (Student)opStudent.get();
+		Optional<Student>opStudent=sr.findById(id);
+		
+		return opStudent.get();
+	}
+
+	@Override
+	public void updateStudentFees(int StudentId, float ammount) {
+		Optional<Student>students=sr.findById(StudentId);
+		Student st=students.get();
+		st.setFeesPaid(st.getFeesPaid()+ammount);
+		sr.save(st);
 		
 	}
 
-
-	@Override
-	public void updateStudentFees(int studentId, double ammount) {
-		// TODO Auto-generated method stub
-		Optional opStudent = sr.findById(Integer.valueOf(studentId));
-        Student st = (Student)opStudent.get();
-        st.setFeesPaid(st.getFeesPaid() + ammount);
-        sr.save(st);
-	}
-
-
 	
-
 
 }

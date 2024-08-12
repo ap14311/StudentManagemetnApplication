@@ -4,25 +4,13 @@ import java.util.List;
 
 import com.sma.app.model.Student;
 
-public interface StudentServiceI  {
-
-	public void saveStudentDetails(Student s);
-	public List<Student> getAllStudents();
+public interface StudentServiceI {
 	
-	public abstract void   deleteStudent(int i);
-	public List<Student> searchStudentByBatch(String batchNumber);
+	public String savestudentdetailsStudent(Student st);
 	
-	
-//	 public abstract void saveStudentDetails(Student student);
+	public List<Student> getAllStudent();
+	public List<Student> searchStudentByBatchNumber(String batchNumber);
+	public Student getSingleStudent(int id);
+	public void updateStudentFees(int StudentId, float ammount);
 
-	//    public abstract List getAllStudents();
-
-	  //  public abstract void deleteStudent(int i);
-
-	    public abstract List seachStudentByBatch(String s);
-
-	    public abstract Student getSingleStudent(int id);
-
-	    public abstract void updateStudentFees(int studentId, double ammount);
-	
 }
